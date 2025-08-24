@@ -1,0 +1,289 @@
+/* === Global Styles === */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to bottom, #e0f7fa, #ffffff);
+  color: #222;
+  animation: fadeInBody 1.5s ease-in;
+}
+
+@keyframes fadeInBody {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* === Header Section === */
+header {
+  text-align: center;
+  padding: 20px;
+  color: white;
+  background-image: url('crypto-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+header::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+header h1,
+header p,
+header .logo {
+  position: relative;
+  z-index: 2;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  transition: transform 0.3s ease;
+}
+
+header h1:hover {
+  transform: scale(1.05);
+}
+
+.logo {
+  width: 200px;
+  height: auto;
+  margin-bottom: 20px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* === Sections === */
+section {
+  padding: 30px 20px;
+  background-color: white;
+  margin: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  animation: fadeInSection 1s ease;
+}
+
+@keyframes fadeInSection {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+h2 {
+  color: #0d47a1;
+  margin-bottom: 10px;
+}
+
+/* === List Styling === */
+ul {
+  list-style-type: square;
+  padding-left: 20px;
+  color: #004d40;
+  animation: popList 0.8s ease-in;
+}
+
+@keyframes popList {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* === Links & Buttons === */
+a {
+  color: #0d47a1;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #00695c;
+  text-decoration: underline;
+}
+
+/* WhatsApp Floating Button */
+.whatsapp-btn {
+  position: fixed;
+  bottom: 5px;
+  right: 20px;
+  background-color: #25D366;
+  color: white;
+  padding: 15px 20px;
+  border-radius: 50px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  font-weight: bold;
+  text-decoration: none;
+  z-index: 1000;
+  transition: background-color 0.3s ease;
+}
+
+.whatsapp-btn:hover {
+  background-color: #128C7E;
+}
+
+/* === Contact Section === */
+.contact-section {
+  text-align: center;
+  padding: 50px 20px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  margin: 60px auto;
+  max-width: 600px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInScroll 1.2s ease forwards;
+  animation-delay: 0.6s;
+}
+
+.email-link {
+  display: inline-block;
+  margin-top: 5px;
+  font-size: 18px;
+  color: #007BFF;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.email-link:hover {
+  color: #004a99;
+  transform: scale(1.05);
+}
+
+/* === Animations === */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInScroll 1s forwards;
+}
+
+@keyframes fadeInScroll {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* === Footer === */
+footer {
+  background-color: #eeeeee;
+  text-align: center;
+  padding: 15px;
+  font-size: 14px;
+  color: #555;
+  border-top: 1px solid #ccc;
+  animation: fadeInFooter 1.2s ease;
+}
+
+@keyframes fadeInFooter {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+/* Referral Button Styling */
+.referral-btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 25px;
+  background-color: #000; /* Black background */
+  color: #fff; /* White text */
+  font-weight: bold;
+  font-size: 1.1rem;
+  border-radius: 8px;
+  text-decoration: none;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  position: relative;
+  overflow: hidden; /* Ensures yellow strip doesn’t overflow */
+  animation: moveLeftRight 4s ease-in-out infinite; /* Add left to right movement animation */
+}
+
+/* The Yellow Strip Animation */
+.referral-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%; /* Initially hidden off-screen */
+  width: 100%;
+  height: 100%;
+  background-color: #f3ba2f; /* Yellow strip */
+  z-index: -1; /* Position the yellow strip behind the text */
+  transition: all 0.3s ease-in-out;
+}
+
+/* Icon Styling */
+.referral-btn i {
+  margin-right: 10px;
+  font-size: 1.3rem;
+  transition: transform 0.3s ease;
+}
+
+/* Hover Effects */
+.referral-btn:hover {
+  background-color: #000; /* Keep background black */
+  color: #fff; /* Keep text color white */
+  transform: translateY(-5px); /* Lift effect */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Shadow effect */
+}
+
+/* Slide the Yellow Strip into view on hover */
+.referral-btn:hover::before {
+  left: 0; /* Slide yellow strip from left */
+}
+
+/* Change text color when hovered */
+.referral-btn:hover {
+  color: #fff; /* Text remains white */
+}
+
+/* Icon movement on hover */
+.referral-btn:hover i {
+  transform: translateX(10px); /* Move icon right */
+}
+
+/* Slow left-right movement animation */
+@keyframes moveLeftRight {
+  0% {
+    transform: translateX(0); /* Start at normal position */
+  }
+  25% {
+    transform: translateX(15px); /* Move 15px to the right */
+  }
+  50% {
+    transform: translateX(0); /* Move back to original position */
+  }
+  75% {
+    transform: translateX(-15px); /* Move 15px to the left */
+  }
+  100% {
+    transform: translateX(0); /* End at the normal position */
+  }
+}
+
+/* Button Animation on Load */
+@keyframes bounceIn {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.referral-btn {
+  animation: bounceIn 0.8s ease;
+}
+
+/* Focus Effect (Accessibility) */
+.referral-btn:focus {
+  outline: none;

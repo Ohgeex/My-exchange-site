@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ohgee Exchange</title>
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Font Awesome for icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        margin: 0;
+        padding: 0;
+        background: #f7f9fc;
+        color: #333;
+        line-height: 1.6;
+      }
+
+      header {
+        background: linear-gradient(90deg, #0052d4, #4364f7, #6fb1fc);
+        color: white;
+        text-align: center;
+        padding: 2rem 1rem;
+      }
+
+      header .logo {
+        width: 100px;
+        border-radius: 50%;
+        margin-bottom: 1rem;
+      }
+
+      section {
+        margin: 2rem auto;
+        max-width: 1000px;
+        padding: 2rem;
+      }
+
+      h2 {
+        text-align: center;
+        margin-bottom: 1.2rem;
+        color: #0052d4;
+      }
+
+      /* ---------- About Us ---------- */
+      #about {
+        background: url("https://images.unsplash.com/photo-1621417114078-4f98f9a6ed2a?auto=format&fit=crop&w=1350&q=80")
+          no-repeat center center/cover;
+        padding: 3rem;
+        border-radius: 16px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+        color: white;
+      }
+
+      #about::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.6);
+        border-radius: 16px;
+      }
+
+      #about h2,
+      #about p {
+        position: relative;
+        z-index: 1;
+      }
+
+      #about h2 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        color: #6fb1fc;
+        font-weight: 800;
+      }
+
+      #about h2::after {
+        content: "";
+        display: block;
+        width: 70px;
+        height: 4px;
+        background: linear-gradient(90deg, #0052d4, #6fb1fc);
+        margin: 0.5rem auto;
+        border-radius: 2px;
+      }
+
+      #about p {
+        font-size: 1.3rem;
+        line-height: 1.9;
+        color: #f1f1f1;
+      }
+
+      /* ---------- Services with Icons ---------- */
+      #services ul {
+        list-style: none;
+        padding: 0;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 1.2rem;
+      }
+
+      #services li {
+        background: white;
+        border-radius: 12px;
+        padding: 1.5rem;
+        text-align: center;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        transition: transform 0.3s ease;
+      }
+
+      #services li:hover {
+        transform: translateY(-5px);
+      }
+
+      #services i {
+        font-size: 2rem;
+        color: #0052d4;
+        margin-bottom: 0.5rem;
+      }
+
+      /* ---------- Referral Button ---------- */
+      .referral-btn {
+        display: inline-block;
+        margin: 1rem auto;
+        padding: 12px 20px;
+        font-size: 1.1rem;
+        font-weight: bold;
+        color: #fff;
+        background: linear-gradient(90deg, #0052d4, #4364f7, #6fb1fc);
+        border-radius: 8px;
+        text-decoration: none;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .referral-btn i {
+        margin-right: 8px;
+      }
+
+      .referral-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 18px rgba(0, 82, 212, 0.3);
+      }
+
+      /* ---------- Chat Widget ---------- */
+      #chat-widget {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-top: 1rem;
+        flex: 1;
+      }
+
+      #chat-input {
+        padding: 8px;
+        border-radius: 6px;
+        border: 1px solid #ccc;
+        width: 200px;
+      }
+
+      #chat-widget button {
+        background: #0052d4;
+        color: white;
+        border: none;
+        padding: 8px 14px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-weight: 600;
+        transition: background 0.3s ease, transform 0.2s ease;
+      }
+
+      #chat-widget button:hover {
+        background: #003bb5;
+        transform: scale(1.05);
+      }
+
+      #chat-response {
+        margin-top: 10px;
+        padding: 10px;
+        border-radius: 8px;
+        background: #f9f9f9;
+        border: 1px solid #ddd;
+        font-size: 0.95rem;
+        color: #333;
+        min-height: 40px;
+      }
+
+      .contact-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 20px;
+        margin-top: 1rem;
+      }
+
+      /* ---------- Testimonials ---------- */
+      .testimonials {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+        margin-top: 1.5rem;
+      }
+
+      .testimonial {
+        background: white;
+        border-radius: 12px;
+        padding: 1.5rem;
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+        text-align: center;
+        transition: transform 0.3s ease;
+      }
+
+      .testimonial:hover {
+        transform: translateY(-6px);
+      }
+
+      .testimonial p {
+        font-style: italic;
+        color: #555;
+      }
+
+      .testimonial h4 {
+        margin-top: 1rem;
+        font-weight: bold;
+        color: #0052d4;
+      }
+
+      footer {
+        text-align: center;
+        background: #0052d4;
+        color: white;
+        padding: 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <img src="headerlogo.jpg" alt="Ohgee Exchange Logo" class="logo" />
+      <h1>Welcome to Ohgee Exchange</h1>
+      <p>Fast & Reliable Currency Exchange</p>
+    </header>
+
+    <section id="about">
+      <h2>About Us</h2>
+      <p>
+        Ohgee Exchange is your trusted vendor for converting naira to crypto,
+        dollars, PayPal, Cashapp, Zelle, Venmo, Chime, Apple Pay and more for
+        payment confirmations — fast, safe, and affordable.
+      </p>
+    </section>
+
+    <section id="services">
+      <h2>What We Offer</h2>
+      <ul>
+        <li><i class="fas fa-coins"></i> Naira to USDT/BTC/ETH</li>
+        <li><i class="fab fa-paypal"></i> PayPal to Naira</li>
+        <li><i class="fas fa-dollar-sign"></i> Dollar to Naira</li>
+        <li><i class="fas fa-bitcoin"></i> Crypto to Naira</li>
+        <li><i class="fas fa-sim-card"></i> Numbers for Site Verification</li>
+        <li><i class="fas fa-tags"></i> Reliable Tags for Payments</li>
+
+        <!-- New Added Options -->
+        <li><i class="fas fa-university"></i> Zelle to Naira</li>
+        <li><i class="fas fa-credit-card"></i> Giftcards to Naira</li>
+        <li><i class="fab fa-apple"></i> Apple Pay to Naira</li>
+        <li><i class="fas fa-wallet"></i> Chime to Naira</li>
+        <li><i class="fas fa-money-bill-wave"></i> CashApp to Naira</li>
+        <li><i class="fas fa-random"></i> Other Payment Options</li>
+      </ul>
+    </section>
+
+    <!-- Referral -->
+    <section id="referral" style="text-align: center">
+      <a
+        href="https://www.bybit.com/invite?ref=B26YWN"
+        target="_blank"
+        class="referral-btn"
+      >
+        <i class="fas fa-rocket"></i> Join BYBIT & Start Trading Now
+      </a>
+
+      <!-- New Referral Code Box -->
+      <div class="referral-code-box">
+        🚀 Can’t open the link? Use this referral code:
+        <strong>B26YWN</strong>
+      </div>
+    </section>
+
+    <style>
+      .referral-code-box {
+        margin: 1rem auto 0;
+        padding: 15px;
+        border: 2px dashed #0052d4;
+        display: block;
+        max-width: 350px;
+        border-radius: 10px;
+        background: #f9f9f9;
+        color: #333;
+        font-size: 1.1rem;
+        transition: border 0.3s ease-in-out;
+      }
+
+      .referral-code-box strong {
+        color: #0052d4;
+        font-size: 1.3rem;
+      }
+
+      /* Animation Effect on Hover */
+      .referral-code-box:hover {
+        animation: border-dance 1s linear infinite;
+      }
+
+      @keyframes border-dance {
+        0% {
+          border-style: dashed;
+          border-color: #0052d4;
+        }
+        25% {
+          border-style: dotted;
+          border-color: #4364f7;
+        }
+        50% {
+          border-style: dashed;
+          border-color: #6fb1fc;
+        }
+        75% {
+          border-style: dotted;
+          border-color: #4364f7;
+        }
+        100% {
+          border-style: dashed;
+          border-color: #0052d4;
+        }
+      }
+    </style>
+
+    <!-- Contact -->
+    <section id="contact">
+      <h2>Contact Us</h2>
+      <p>Chat or email us directly:</p>
+
+      <div class="contact-row">
+        <!-- Chat Box -->
+        <div>
+          <div id="chat-widget">
+            <input
+              id="chat-input"
+              type="text"
+              placeholder="Ask me anything..."
+              onkeydown="handleKey(event)"
+            />
+            <button onclick="sendMessage()">Send</button>
+          </div>
+          <div id="chat-response">🤖 I’m here to chat with you!</div>
+        </div>
+
+        <!-- WhatsApp -->
+        <p>
+          <a
+            href="https://wa.me/2347049869484"
+            class="whatsapp-btn"
+            target="_blank"
+          >
+            Chat on WhatsApp
+          </a>
+        </p>
+      </div>
+
+      <a href="mailto:ihewunwaogemdi@gmail.com" class="email-link">
+        ihewunwaogemdi@gmail.com
+      </a>
+    </section>
+
+    <!-- Testimonials -->
+    <section>
+      <h2>What Our Customers Say</h2>
+      <div class="testimonials">
+        <div class="testimonial">
+          <p>
+            "Smooth transactions every time and he's very trustworthy and
+            reliable!"
+          </p>
+          <h4>- Derick Exchange</h4>
+        </div>
+        <div class="testimonial">
+          <p>"Best exchange rates I’ve seen, and very fast too I won't lie."</p>
+          <h4>- Young Exchange</h4>
+        </div>
+        <div class="testimonial">
+          <p>"Ohgee na my biggest plug wey dey deliver. Highly recommended."</p>
+          <h4>- Buka Funds</h4>
+          <p>
+            "Trade with them and have peace of mind, they have highest gift card
+            rates."
+          </p>
+          <h4>- Emmy Dollar</h4>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>&copy; 2025 Ohgee Exchange. All rights reserved.</p>
+    </footer>
+
+    <script>
+      function handleKey(event) {
+        if (event.key === "Enter") {
+          event.preventDefault(); // prevent accidental form submission or line breaks
+          sendMessage();
+        }
+      }
+
+      async function sendMessage() {
+        const inputBox = document.getElementById("chat-input");
+        const input = inputBox.value.trim();
+        const responseBox = document.getElementById("chat-response");
+
+        if (!input) {
+          responseBox.textContent = "⚠️ Please type something first.";
+          return;
+        }
+
+        try {
+          responseBox.textContent =
+            "🤖 " + "Currently running in demo mode. OpenAI not connected.";
+
+          // clear input after sending
+          inputBox.value = "";
+        } catch (err) {
+          responseBox.textContent = "❌ Error: Unable to connect right now.";
+        }
+      }
+    </script>
+  </body>
+</html>
